@@ -1,5 +1,5 @@
 use strict;
-use Test::More tests => 5 * 2;
+use Test::More tests => 6 * 2;
 
 use IO::File::WithPath;
 use FindBin;
@@ -15,12 +15,13 @@ sub check {
     my $f = shift;
 
     is ref $f => 'IO::File::WithPath';
+    ok $f->can('path');
     is $f->path => $script_path;
 
     is $f->getline => "use strict;\n";
 
     while ( my $line = <$f> ) {
-        is $line => "use Test::More tests => 5 * 2;\n";
+        is $line => "use Test::More tests => 6 * 2;\n";
         last;
     }
 
