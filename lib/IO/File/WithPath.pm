@@ -13,6 +13,8 @@ BEGIN {
         # TODO 
     }
     else {
+        # TODO any platform support.
+        # - MacOSX
         if ( -d "/proc/$$/fd/" ) {
             $path_guess_method = sub {
                 my $fd = sprintf('/proc/%s/fd/%s', $$, fileno $_[0]);
