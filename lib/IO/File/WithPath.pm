@@ -34,7 +34,7 @@ sub new {
     # symboltable hack
     ${*$io}{__PACKAGE__} = Path::Class::File->new($path)->resolve->absolute;
 
-    bless $io, $class;
+    bless $io => $class;
 }
 
 sub path { 
@@ -52,7 +52,10 @@ sub from_open_handle {
         return;
     }
 
-    return __PACKAGE__->new($path);
+    # symboltable hack
+    ${*$io}{__PACKAGE__} = Path::Class::File->new($path)->resolve->absolute;
+
+    bless $io =>  __PACKAGE__;
 }
 
 1;
