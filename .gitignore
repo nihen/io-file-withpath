@@ -6,3 +6,6 @@ Makefile.old
 *.swp
 nytprof/
 nytprof.out
+MANIFEST
+MANIFEST.bak
+
