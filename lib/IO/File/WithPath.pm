@@ -106,17 +106,26 @@ but file-path not include MODE.(e.g. '</path/to/file')
 
 create object from filehandle.
 
+ support platform
+  Linux
+ known unsupport platform
+  MSWin32 MacOSX
+
 =item path
 
 Path::Clss::File or Path::Class::Dir instance
 
 =back
 
+=head1 TODO
+
+support any platform on from_open_handle.
+
 =head1 AUTHOR
 
 Masahiro Chiba E<lt>chiba@geminium.comE<gt>
 
-=head1 THANKS TODO
+=head1 THANKS
 
 miyagawa
 nothingmuch
