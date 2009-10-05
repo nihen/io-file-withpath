@@ -106,6 +106,10 @@ but file-path not include MODE.(e.g. '</path/to/file')
 
 create object from filehandle.
 
+=item path
+
+Path::Clss::File or Path::Class::Dir instance
+
 =back
 
 =head1 AUTHOR
