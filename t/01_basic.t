@@ -18,7 +18,7 @@ sub check {
     is $f->getline => "use strict;\n";
 
     while ( my $line = <$f> ) {
-        is $line => "use Test::More tests => 6 * 2;\n";
+        is $line => "use Test::More tests => 6 * 1;\n";
         last;
     }
 
