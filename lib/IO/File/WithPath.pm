@@ -31,10 +31,21 @@ sub new {
 
     my $io = IO::File->new($path, @_);
 
+
     # symboltable hack
-    ${*$io}{__PACKAGE__} = Path::Class::File->new($path)->resolve->absolute;
+    ${*$io}{__PACKAGE__} = _create_path($path);
 
     bless $io => $class;
+}
+
+sub _create_path {
+    my $path = shift;
+    if ( -d $path ) {
+        return Path::Class::Dir->new($path);
+    }
+    else {
+        return Path::Class::File->new($path);
+    }
 }
 
 sub path { 
@@ -53,7 +64,7 @@ sub from_open_handle {
     }
 
     # symboltable hack
-    ${*$io}{__PACKAGE__} = Path::Class::File->new($path)->resolve->absolute;
+    ${*$io}{__PACKAGE__} = _create_path($path);
 
     bless $io =>  __PACKAGE__;
 }
