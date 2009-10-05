@@ -2,7 +2,7 @@ use inc::Module::Install;
 name 'IO-File-WithPath';
 all_from 'lib/IO/File/WithPath.pm';
 
-# requires '';
+requires 'Path::Class';
 
 tests 't/*.t t/*/*.t t/*/*/*.t t/*/*/*/*.t';
 test_requires 'Test::More';
