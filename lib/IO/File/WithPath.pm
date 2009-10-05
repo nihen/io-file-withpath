@@ -4,26 +4,6 @@ use warnings;
 our $VERSION = '0.01';
 
 use base qw/IO::File/;
-use Path::Class;
-
-our $path_guess_method;
-BEGIN {
-    $path_guess_method = sub {};
-    if ( $^O eq 'MSWin32' ) {
-        # TODO 
-    }
-    else {
-        # TODO any platform support.
-        # - MacOSX
-        if ( -d "/proc/$$/fd/" ) {
-            $path_guess_method = sub {
-                my $fd = sprintf('/proc/%s/fd/%s', $$, fileno $_[0]);
-                return if !-e $fd;
-                return readlink($fd);
-            };
-        }
-    }
-}
 
 sub new {
     my $class = shift;
@@ -31,21 +11,10 @@ sub new {
 
     my $io = IO::File->new($path, @_);
 
-
     # symboltable hack
-    ${*$io}{__PACKAGE__} = _create_path($path);
+    ${*$io}{__PACKAGE__} = $path;
 
     bless $io => $class;
-}
-
-sub _create_path {
-    my $path = shift;
-    if ( -d $path ) {
-        return Path::Class::Dir->new($path);
-    }
-    else {
-        return Path::Class::File->new($path);
-    }
 }
 
 sub path { 
@@ -53,21 +22,6 @@ sub path {
     ${*$io}{__PACKAGE__};
 }
 
-sub from_open_handle {
-    my $class = shift;
-    my $io    = shift;
-
-    my $path = $path_guess_method->($io);
-
-    if ( !$path ) {
-        return;
-    }
-
-    # symboltable hack
-    ${*$io}{__PACKAGE__} = _create_path($path);
-
-    bless $io =>  __PACKAGE__;
-}
 
 1;
 __END__
@@ -85,10 +39,6 @@ IO::File::WithPath - IO::File remember file path
   print $io->path; # print '/path/to/file'
   print $io->getline; # IO::File-method
 
-  open my $fh, '<', '/path/to/file';
-  $io = IO::File::WithPath->from_open_handle($fh);
-  print $io->path; # print '/path/to/file'
-
 =head1 DESCRIPTION
 
 IO::File::WithPath is IO::File remember file path.
@@ -102,24 +52,11 @@ IO::File::WithPath is IO::File remember file path.
 create object from file-path as IO::File->new().
 but file-path not include MODE.(e.g. '</path/to/file')
 
-=item from_open_handle
-
-create object from filehandle.
-
- support platform
-  Linux
- known unsupport platform
-  MSWin32 MacOSX
-
 =item path
 
-Path::Clss::File or Path::Class::Dir instance
+file-path
 
 =back
-
-=head1 TODO
-
-support any platform on from_open_handle.
 
 =head1 AUTHOR
 

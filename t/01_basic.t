@@ -1,14 +1,11 @@
 use strict;
-use Test::More tests => 6 * 2;
+use Test::More tests => 6 * 1;
 
 use IO::File::WithPath;
 use FindBin;
 my $script_path = "$FindBin::Bin/01_basic.t";
 
 check(IO::File::WithPath->new($script_path));
-
-open my $fh, "<", $script_path;
-check(IO::File::WithPath->from_open_handle($fh));
 
 
 sub check {
