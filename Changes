@@ -1,5 +1,8 @@
 Revision history for Perl extension IO::File::WithPath
 
+0.03    Wed Oct  7 04:52:09 2009
+        - fixed bug for hash key(thanks to miyagawa)
+
 0.02    Mon Oct  5 10:28:12 2009
         - delete from_open_handle
         - path change to primitive "string"
