@@ -12,14 +12,14 @@ sub new {
     my $io = IO::File->new($path, @_);
 
     # symboltable hack
-    ${*$io}{__PACKAGE__} = $path;
+    ${*$io}{+__PACKAGE__} = $path;
 
     bless $io => $class;
 }
 
 sub path { 
     my $io = shift;
-    ${*$io}{__PACKAGE__};
+    ${*$io}{+__PACKAGE__};
 }
 
 
