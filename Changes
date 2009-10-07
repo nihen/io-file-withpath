@@ -1,5 +1,8 @@
 Revision history for Perl extension IO::File::WithPath
 
+0.04    Wed Oct  7 17:12:18 2009
+        - support relative path
+
 0.03    Wed Oct  7 04:52:09 2009
         - fixed bug for hash key(thanks to miyagawa)
 
