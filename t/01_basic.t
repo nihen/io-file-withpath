@@ -1,11 +1,15 @@
 use strict;
-use Test::More tests => 6 * 1;
+use Test::More tests => 6 * 2;
 
 use IO::File::WithPath;
 use FindBin;
-my $script_path = "$FindBin::Bin/01_basic.t";
+use File::Spec;
 
-check(IO::File::WithPath->new($script_path));
+my $absolute_path = "$FindBin::Bin/01_basic.t";
+my $relative_path = File::Spec->abs2rel($absolute_path);
+
+check(IO::File::WithPath->new($absolute_path));
+check(IO::File::WithPath->new($relative_path));
 
 
 sub check {
@@ -13,12 +17,12 @@ sub check {
 
     is ref $f => 'IO::File::WithPath';
     ok $f->can('path');
-    is $f->path => $script_path;
+    is $f->path => $absolute_path;
 
     is $f->getline => "use strict;\n";
 
     while ( my $line = <$f> ) {
-        is $line => "use Test::More tests => 6 * 1;\n";
+        is $line => "use Test::More tests => 6 * 2;\n";
         last;
     }
 
