@@ -5,7 +5,7 @@ use IO::File::WithPath;
 use FindBin;
 use File::Spec;
 
-my $absolute_path = "$FindBin::Bin/01_basic.t";
+my $absolute_path = File::Spec->rel2abs("$FindBin::Bin/01_basic.t");
 my $relative_path = File::Spec->abs2rel($absolute_path);
 
 check(IO::File::WithPath->new($absolute_path));

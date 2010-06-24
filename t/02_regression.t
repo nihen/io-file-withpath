@@ -3,7 +3,8 @@ use Test::More;
 
 use IO::File::WithPath;
 use FindBin;
-my $script_path = "$FindBin::Bin/02_regression.t";
+use File::Spec;
+my $script_path = File::Spec->rel2abs("$FindBin::Bin/02_regression.t");
 
 my $io = IO::File::WithPath->new($script_path);
 
