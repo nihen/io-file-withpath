@@ -1,5 +1,9 @@
 Revision history for Perl extension IO::File::WithPath
 
+0.05    Fri Jun 25 02:14:14 JST 2010
+        - add filename rt#58593
+        - fixed test win32 path(/ => \)
+
 0.04    Wed Oct  7 17:12:18 2009
         - support relative path
 
