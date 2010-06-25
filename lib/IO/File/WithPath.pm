@@ -57,10 +57,6 @@ but file-path not include MODE.(e.g. '</path/to/file')
 
 file-path
 
-=item filename
-
-alias to path.
-
 =back
 
 =head1 AUTHOR
