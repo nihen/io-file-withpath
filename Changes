@@ -1,5 +1,9 @@
 Revision history for Perl extension IO::File::WithPath
 
+0.06    Fri Jun 25 15:53:39 JST 2010
+        - Remove filename method.(since 0.05)
+          unnecessary compatible to File::Temp.
+
 0.05    Fri Jun 25 02:14:14 JST 2010
         - add filename rt#58593
         - fixed test win32 path(/ => \)
