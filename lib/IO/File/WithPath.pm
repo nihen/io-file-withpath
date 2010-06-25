@@ -22,7 +22,6 @@ sub path {
     my $io = shift;
     ${*$io}{+__PACKAGE__};
 }
-*filename = \&path;
 
 
 1;

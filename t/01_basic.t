@@ -1,5 +1,5 @@
 use strict;
-use Test::More tests => 8 * 2;
+use Test::More tests => 6 * 2;
 
 use IO::File::WithPath;
 use FindBin;
@@ -20,13 +20,10 @@ sub check {
     ok $f->can('path');
     is $f->path => $absolute_path;
 
-    ok $f->can('filename');
-    is $f->filename => $absolute_path;
-
     is $f->getline => "use strict;\n";
 
     while ( my $line = <$f> ) {
-        is $line => "use Test::More tests => 8 * 2;\n";
+        is $line => "use Test::More tests => 6 * 2;\n";
         last;
     }
 
