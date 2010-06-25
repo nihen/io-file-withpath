@@ -1,5 +1,8 @@
 Revision history for Perl extension IO::File::WithPath
 
+0.07    Fri Jun 25 16:02:49 JST 2010
+        - remove filename on POD
+
 0.06    Fri Jun 25 15:53:39 JST 2010
         - Remove filename method.(since 0.05)
           unnecessary compatible to File::Temp.
