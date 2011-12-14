@@ -1,5 +1,9 @@
 Revision history for Perl extension IO::File::WithPath
 
+0.08    Wed Dec 14 15:30:51 UTC 2011
+        - POD fixes
+          no changes code
+
 0.07    Fri Jun 25 16:02:49 JST 2010
         - remove filename on POD
 
