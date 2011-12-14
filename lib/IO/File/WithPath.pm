@@ -31,7 +31,7 @@ __END__
 
 =head1 NAME
 
-IO::File::WithPath - IO::File remember file path
+IO::File::WithPath - An IO::File extension that keeps the pathname
 
 =head1 SYNOPSIS
 
@@ -42,7 +42,8 @@ IO::File::WithPath - IO::File remember file path
 
 =head1 DESCRIPTION
 
-IO::File::WithPath is IO::File remember file path.
+IO::File::WithPath is a Perl module extending IO::File to keep track
+of the absolute path name.
 
 =head1 METHODS
 
@@ -61,18 +62,20 @@ file-path
 
 =head1 AUTHOR
 
-Masahiro Chiba E<lt>chiba@geminium.comE<gt>
+Masahiro Chiba E<lt>nihen@megabbs.comE<gt>
 
 =head1 THANKS
 
 miyagawa
 nothingmuch
 
-=head1 SEE ALSO
-
 =head1 LICENSE
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
+
+=head1 COPYRIGHT
+
+Copyright (c) 2009-2011 Masahiro Chiba E<lt>nihen@megabbs.comE<gt>
 
 =cut
