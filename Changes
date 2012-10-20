@@ -1,5 +1,10 @@
 Revision history for Perl extension IO::File::WithPath
 
+0.09    Sat Oct 20 07:44:09 UTC 2012
+        - no code change
+        - include Module::Install 1.06
+          http://weblog.bulknews.net/post/33907905561/do-not-ship-modules-with-module-install-1-04
+
 0.08    Wed Dec 14 15:30:51 UTC 2011
         - POD fixes
           no changes code
